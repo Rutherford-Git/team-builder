@@ -30,8 +30,8 @@ export default function App() {
       number: inputvalue.number
     }
 
-    setnewf(newpal);
-   
+    setnewf([...newf ,newpal]);
+   setInputValue(formValues);
   }
 
   return (

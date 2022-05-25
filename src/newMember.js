@@ -15,6 +15,7 @@ export default function NewMember(props) {
     const onSubmit = evt => {
         evt.preventDefault();
         submit();
+        console.log(props);
     }
 
     return(
