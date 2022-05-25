@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import NewMember from './newMember';
 import './App.css';
+import NewMemberList from './newMemberList';
 
-function App() {
+
+const formValues= {
+  firstName: '',
+  lastName: '',
+  email:'',
+  number: '',
+}
+
+export default function App() {
+
+/*   const [mainList, setMainList] = useState([]) */
+  const [inputvalue, setInputValue] = useState(formValues);
+  const [newf, setnewf]= useState([])
+
+   const updateform = (inputName, inptValue) =>{
+     console.log('ddd');
+     setInputValue({ ...inputvalue, [inputName]: inptValue})
+   }
+
+   const submitform = () =>{
+    const newpal = {
+      firstName: inputvalue.firstName.trim(),
+      lastName: inputvalue.lastName.trim(),
+      email: inputvalue.email.trim(),
+      number: inputvalue.number
+    }
+
+    setnewf(newpal);
+   
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+       
+        <h1>
+          THE ULTIMATE FORM
+        </h1>
+          
+        
       </header>
+       <NewMember 
+      values={inputvalue} 
+      update={updateform} 
+      submit={submitform} />
+          {
+        newf.forEach(xyz =>{
+          <NewMemberList person={xyz} key={xyz.number}/>
+        })
+      }
+      
     </div>
   );
 }
-
-export default App;

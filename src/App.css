@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+form{
+  margin-top: 12rem;
+  margin-left: 15rem;
+}
+
+body{
+  background-image: url("C:\Users\ruthe\OneDrive\Pictures\kirb.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
